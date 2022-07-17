@@ -65,6 +65,7 @@ const fileBook = () => {
             const aceRet = addClassElements(ceRet[0], ceRet[1], ceRet[2], ceRet[3], ceRet[4]);
             const aieRet = appendInnerElements(aceRet[0], aceRet[1], aceRet[2], aceRet[3], aceRet[4]);
             const lieRet = labelInnerElements(aceRet[1], aceRet[2], aceRet[3], aceRet[4]);
+            deleteOnClick(aieRet);
             addToLibrary(lieRet[0], lieRet[1], lieRet[2], lieRet[3], aieRet[0])
         } else return;
     } else {
@@ -90,27 +91,10 @@ booksInLibrary.addEventListener("click", (e) => {
         }
         for (i = 1; i <= myLibrary.length; i++) {
             const ceRet = createElements();
-            const aceRet = addClassElements(ceRet[0], ceRet[1], ceRet[2], ceRet[3], ceRet[4]);
-            const aieRet = appendInnerElements(aceRet[0], aceRet[1], aceRet[2], aceRet[3], aceRet[4]);
+            const aceRet = addClassElements(ceRet[0], ceRet[1], ceRet[2], ceRet[3], ceRet[4], ceRet[5]);
+            const aieRet = appendInnerElements(aceRet[0], aceRet[1], aceRet[2], aceRet[3], aceRet[4], ceRet[5]);
             appendOuterElements(aieRet[0]);
-            aieRet[0].dataset.id = i - 1;
-            aieRet[0].addEventListener("click", () => {
-                if (myLibrary.length === 1) {
-                    myLibrary.splice(0, 2);
-                    aieRet[0].remove(aieRet[0]);
-                    booksInLibrary.textContent = "View Books in Library";
-                    libOpen = false;
-                    return
-                }
-                idCard = aieRet[0].dataset.id;
-                // console.log(idCard);
-                myLibrary.splice(idCard, 1);
-                aieRet[0].remove(aieRet[0]);
-                // console.log("Dataset.id is " + aieRet[0].dataset.id);
-                // console.log("idCard is " + idCard);
-                // console.log("Length is " + myLibrary.length);
-
-            })
+            deleteOnClick(aieRet);
             assignBookValues(aceRet[1], aceRet[2], aceRet[3], aceRet[4]);
             booksInLibrary.textContent = "Mentally Collapse Library";
             libOpen = true;
@@ -126,6 +110,22 @@ booksInLibrary.addEventListener("click", (e) => {
     }
     // identifyCards();
 })
+
+const deleteOnClick = (aieRet) => {
+    aieRet[0].dataset.id = i - 1;
+    aieRet[0].addEventListener("click", () => {
+        if (myLibrary.length === 1) {
+            myLibrary.splice(0, 2);
+            aieRet[0].remove(aieRet[0]);
+            booksInLibrary.textContent = "View Books in Library";
+            libOpen = false;
+            return
+        }
+        idCard = aieRet[0].dataset.id;
+        myLibrary.splice(idCard, 1);
+        aieRet[0].remove(aieRet[0]);
+    })
+}
 
 const validateUserInput = () => {
     if (userInputTitle.value.length === 0 && userInputAuthor.value.length === 0 && userInputPages.value.length === 0) {
@@ -170,6 +170,13 @@ const readOrNotRead = () => {
 const cardWrapper = document.createElement('div');
 cardWrapper.setAttribute('class', 'cardWrapper');
 document.body.append(cardWrapper);
+
+const deleteCard = () => {
+    const deleteCard = document.createElement("div");
+    deleteCard.classList.add("deleteCard");
+    newCardElement.appendChild(deleteCard);
+    deleteCard.textContent = "X"
+}
 
 const createElements = () => {
     const newCardElement = document.createElement("div");
