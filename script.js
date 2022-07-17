@@ -84,6 +84,16 @@ submitAndClose.addEventListener("click", (e) => {
     modalbg.classList.remove("bg-active");
 })
 
+
+const deleteIcon = (newCardElement) => {
+    const deleteCard = document.createElement("div");
+    deleteCard.classList.add("deleteCard");
+    newCardElement.appendChild(deleteCard);
+    deleteCard.textContent = "X"
+    return newCardElement;
+}
+
+
 booksInLibrary.addEventListener("click", (e) => {
     if (libOpen == false) {
         if (myLibrary.length === 0) {
@@ -93,6 +103,7 @@ booksInLibrary.addEventListener("click", (e) => {
             const ceRet = createElements();
             const aceRet = addClassElements(ceRet[0], ceRet[1], ceRet[2], ceRet[3], ceRet[4], ceRet[5]);
             const aieRet = appendInnerElements(aceRet[0], aceRet[1], aceRet[2], aceRet[3], aceRet[4], ceRet[5]);
+            const diRet = deleteIcon(aieRet[0]);
             appendOuterElements(aieRet[0]);
             deleteOnClick(aieRet);
             assignBookValues(aceRet[1], aceRet[2], aceRet[3], aceRet[4]);
@@ -170,13 +181,6 @@ const readOrNotRead = () => {
 const cardWrapper = document.createElement('div');
 cardWrapper.setAttribute('class', 'cardWrapper');
 document.body.append(cardWrapper);
-
-const deleteCard = () => {
-    const deleteCard = document.createElement("div");
-    deleteCard.classList.add("deleteCard");
-    newCardElement.appendChild(deleteCard);
-    deleteCard.textContent = "X"
-}
 
 const createElements = () => {
     const newCardElement = document.createElement("div");

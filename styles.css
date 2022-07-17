@@ -20,6 +20,8 @@
 .bookCard {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 15fr 1fr;
+    grid-auto-flow: column;
     background-color: rgb(247, 247, 247);
     height: 150px;
     align-items: center;
@@ -34,14 +36,14 @@
     overflow: hidden;
 }
 
-.removeBook {
+.deleteCard {
     color: red;
     Width: 25px;
     height: 25px;
-    /* background-color: blue; */
     /* position: absolute; */
-    /* position: relative; */
-    /* top: 10%; */
+    position: relative;
+    /* top: -190%; */
+    /* left: 90%; */
     /* right: 50%; */
 }
 
