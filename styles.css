@@ -1,0 +1,148 @@
+.card-active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.card-border {
+    border: 3px solid rgb(200, 179, 154);
+    border-radius: 10px;
+    /* height: 150px; */
+    margin: 10px;
+}
+
+.cardWrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin: 35px;
+    /* position: relative; */
+}
+
+.bookCard {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    background-color: rgb(247, 247, 247);
+    height: 150px;
+    align-items: center;
+    /* height: minmax(150px, 30%); */
+}
+
+.bookElement {
+    font-family: monospace;
+    font-size: 16px;
+    margin-left: 8px;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.removeBook {
+    color: red;
+    Width: 25px;
+    height: 25px;
+    /* background-color: blue; */
+    /* position: absolute; */
+    /* position: relative; */
+    /* top: 10%; */
+    /* right: 50%; */
+}
+
+.mainButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addNewBook-container,
+.booksInLibrary-container {
+    margin: 200px 10px 0px 10px;
+}
+
+.addNewBook,
+.booksInLibrary {
+    border: none;
+    border-radius: 10px;
+    width: 280px;
+    height: 80px;
+    background-color: bisque;
+    transition: 0.1s;
+    font-size: 16px;
+    font-family: monospace;
+}
+
+.addNewBook:hover,
+.booksInLibrary:hover {
+    background-color: rgb(240, 215, 186);
+}
+
+
+.booksInLibraryClicked {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.collapseLibraryClicked {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-bg {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.bg-active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal {
+    position: relative;
+    font-family: monospace;
+    background-color: white;
+    width: 475px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+    border-radius: 10px;
+}
+
+.submitButtons {
+    display: flex;
+}
+
+.inputFields {
+    margin-bottom: 20px;
+}
+
+.inputSection {
+    display: grid;
+    grid-template-columns: 150px 200px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+#readInput,
+#notReadInput {
+    width: 20px;
+    height: 20px;
+}
+
+.modalClose {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
