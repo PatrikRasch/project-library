@@ -1,6 +1,7 @@
 .card-active {
     visibility: visible;
     opacity: 1;
+    z-index: 5;
 }
 
 .card-border {
@@ -8,24 +9,24 @@
     border-radius: 10px;
     /* height: 150px; */
     margin: 10px;
+    z-index: 5;
 }
 
 .cardWrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     margin: 35px;
-    /* position: relative; */
+    z-index: 5;
 }
 
 .bookCard {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 15fr 1fr;
+    grid-template-columns: 10fr 1fr;
     grid-auto-flow: column;
     background-color: rgb(247, 247, 247);
     height: 150px;
     align-items: center;
-    /* height: minmax(150px, 30%); */
 }
 
 .bookElement {
@@ -40,11 +41,13 @@
     color: red;
     Width: 25px;
     height: 25px;
-    /* position: absolute; */
     position: relative;
-    /* top: -190%; */
-    /* left: 90%; */
-    /* right: 50%; */
+    cursor: pointer;
+    transition: 0.05s;
+}
+
+.deleteCard:hover {
+    transform: scale(1.1);
 }
 
 .mainButtons {
@@ -104,6 +107,7 @@
 .bg-active {
     visibility: visible;
     opacity: 1;
+    z-index: 10;
 }
 
 .modal {

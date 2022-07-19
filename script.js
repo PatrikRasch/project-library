@@ -65,7 +65,8 @@ const fileBook = () => {
             const aceRet = addClassElements(ceRet[0], ceRet[1], ceRet[2], ceRet[3], ceRet[4]);
             const aieRet = appendInnerElements(aceRet[0], aceRet[1], aceRet[2], aceRet[3], aceRet[4]);
             const lieRet = labelInnerElements(aceRet[1], aceRet[2], aceRet[3], aceRet[4]);
-            deleteOnClick(aieRet);
+            const diRet = deleteIcon(aieRet[0]);
+            deleteOnClick(aieRet, diRet);
             addToLibrary(lieRet[0], lieRet[1], lieRet[2], lieRet[3], aieRet[0])
         } else return;
     } else {
@@ -84,16 +85,6 @@ submitAndClose.addEventListener("click", (e) => {
     modalbg.classList.remove("bg-active");
 })
 
-
-const deleteIcon = (newCardElement) => {
-    const deleteCard = document.createElement("div");
-    deleteCard.classList.add("deleteCard");
-    newCardElement.appendChild(deleteCard);
-    deleteCard.textContent = "X"
-    return newCardElement;
-}
-
-
 booksInLibrary.addEventListener("click", (e) => {
     if (libOpen == false) {
         if (myLibrary.length === 0) {
@@ -105,7 +96,7 @@ booksInLibrary.addEventListener("click", (e) => {
             const aieRet = appendInnerElements(aceRet[0], aceRet[1], aceRet[2], aceRet[3], aceRet[4], ceRet[5]);
             const diRet = deleteIcon(aieRet[0]);
             appendOuterElements(aieRet[0]);
-            deleteOnClick(aieRet);
+            deleteOnClick(aieRet, diRet);
             assignBookValues(aceRet[1], aceRet[2], aceRet[3], aceRet[4]);
             booksInLibrary.textContent = "Mentally Collapse Library";
             libOpen = true;
@@ -122,9 +113,9 @@ booksInLibrary.addEventListener("click", (e) => {
     // identifyCards();
 })
 
-const deleteOnClick = (aieRet) => {
+const deleteOnClick = (aieRet, diRet) => {
     aieRet[0].dataset.id = i - 1;
-    aieRet[0].addEventListener("click", () => {
+    diRet[1].addEventListener("click", () => {
         if (myLibrary.length === 1) {
             myLibrary.splice(0, 2);
             aieRet[0].remove(aieRet[0]);
@@ -136,6 +127,14 @@ const deleteOnClick = (aieRet) => {
         myLibrary.splice(idCard, 1);
         aieRet[0].remove(aieRet[0]);
     })
+}
+
+const deleteIcon = (newCardElement) => {
+    const deleteCard = document.createElement("img");
+    deleteCard.classList.add("deleteCard");
+    newCardElement.appendChild(deleteCard);
+    deleteCard.src = "img/delete-icon.png"
+    return [newCardElement, deleteCard];
 }
 
 const validateUserInput = () => {
