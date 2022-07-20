@@ -27,6 +27,11 @@
     background-color: rgb(247, 247, 247);
     height: 150px;
     align-items: center;
+    grid-template-areas:
+        "a b c k"
+        "a b c d"
+        "a b c d"
+        "a b r r";
 }
 
 .bookElement {
@@ -38,16 +43,54 @@
 }
 
 .deleteCard {
-    color: red;
     Width: 25px;
     height: 25px;
     position: relative;
     cursor: pointer;
     transition: 0.05s;
+    grid-area: k;
+
 }
 
 .deleteCard:hover {
     transform: scale(1.1);
+}
+
+.toggleRead {
+    grid-area: r;
+    height: 30px;
+    line-height: 30px;
+    width: 30px;
+    font-size: 15;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    margin: 0px 10px 10px 0px;
+    background-color: transparent;
+    border: 2px solid black;
+    transition: 2s;
+}
+
+.toggleRead: {
+    transform: scale(1);
+}
+
+.not-read-toggle {
+    transform: scale(0.8);
+}
+
+.read-toggle {
+    transform: scale(1);
+}
+
+.read {
+    background-color: rgb(179, 255, 188);
+    transition: 0.5s;
+}
+
+.not-read {
+    background-color: rgb(255, 200, 200);
+    transition: 0.5s;
 }
 
 .mainButtons {

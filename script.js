@@ -45,7 +45,6 @@ const addToLibrary = (title, author, pages, read, newCardElement) => {
         alert("This title already exists in the library. Now stop testing the limits of my program.")
         return
     }
-
     myLibrary.push(new Book(title, author, pages, read));
     if (libOpen == true) {
         document.body.appendChild(newCardElement);
@@ -54,8 +53,12 @@ const addToLibrary = (title, author, pages, read, newCardElement) => {
     } else return;
 }
 
+// let meinKampf = addToLibrary("hitler", "1337", "mein kampf", true);
+
+// if (mein) { }
+
 addToLibrary("Patrik2", "AuthorIngebrigtsen", "bro", "Read");
-addToLibrary("Patrik", "AuthorIngebrigtsen", "bro", "Read");
+addToLibrary("Patrik", "AuthorIngebrigtsen", "bro", "Not read");
 addToLibrary("Patri6", "AuthorIngebrigtsen", "bro", "Read");
 
 const fileBook = () => {
@@ -66,6 +69,9 @@ const fileBook = () => {
             const aieRet = appendInnerElements(aceRet[0], aceRet[1], aceRet[2], aceRet[3], aceRet[4]);
             const lieRet = labelInnerElements(aceRet[1], aceRet[2], aceRet[3], aceRet[4]);
             const diRet = deleteIcon(aieRet[0]);
+            const trRet = toggleRead(aceRet[0])
+            updateReadStatus(trRet[0], aceRet[4], trRet[1])
+            colorReadStatus(aieRet[0], aceRet[4]);
             deleteOnClick(aieRet, diRet);
             addToLibrary(lieRet[0], lieRet[1], lieRet[2], lieRet[3], aieRet[0])
         } else return;
@@ -98,6 +104,9 @@ booksInLibrary.addEventListener("click", (e) => {
             appendOuterElements(aieRet[0]);
             deleteOnClick(aieRet, diRet);
             assignBookValues(aceRet[1], aceRet[2], aceRet[3], aceRet[4]);
+            const trRet = toggleRead(aceRet[0])
+            updateReadStatus(trRet[0], aceRet[4], trRet[1])
+            colorReadStatus(aieRet[0], aceRet[4]);
             booksInLibrary.textContent = "Mentally Collapse Library";
             libOpen = true;
         }
@@ -136,6 +145,50 @@ const deleteIcon = (newCardElement) => {
     deleteCard.src = "img/delete-icon.png"
     return [newCardElement, deleteCard];
 }
+
+// Book.prototype.toggleReadProto = function () {
+// console.log(Book);
+// console.log(myLibrary[this]);
+// console.log("prototype logged!");
+// }
+
+const toggleRead = (newCardElement) => {
+    const toggleRead = document.createElement("button");
+    toggleRead.classList.add("toggleRead");
+    newCardElement.appendChild(toggleRead);
+    return [toggleRead, newCardElement]
+}
+
+const colorReadStatus = (newCardElement, readElement) => {
+    if (readElement.textContent === "Read") {
+        newCardElement.classList.add("read");
+    }
+    if (readElement.textContent === "Not read") {
+        newCardElement.classList.add("not-read")
+    }
+}
+
+const updateReadStatus = (toggleRead, readElement, newCardElement) => {
+    toggleRead.addEventListener("click", (e) => {
+        if (readElement.textContent === "Read") {
+            readElement.textContent = "Not read"
+            newCardElement.classList.add("not-read")
+            newCardElement.classList.remove("read")
+            toggleRead.classList.add("not-read-toggle")
+            toggleRead.classList.remove("read-toggle")
+            return
+        }
+        if (readElement.textContent === "Not read") {
+            readElement.textContent = "Read"
+            newCardElement.classList.add("read")
+            newCardElement.classList.remove("not-read")
+            toggleRead.classList.add("read-toggle")
+            toggleRead.classList.remove("not-read-toggle")
+        }
+    }
+    )
+}
+
 
 const validateUserInput = () => {
     if (userInputTitle.value.length === 0 && userInputAuthor.value.length === 0 && userInputPages.value.length === 0) {
