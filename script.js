@@ -57,9 +57,9 @@ const addToLibrary = (title, author, pages, read, newCardElement) => {
 
 // if (mein) { }
 
-addToLibrary("Patrik2", "AuthorIngebrigtsen", "bro", "Read");
-addToLibrary("Patrik", "AuthorIngebrigtsen", "bro", "Not read");
-addToLibrary("Patri6", "AuthorIngebrigtsen", "bro", "Read");
+// addToLibrary("Patrik2", "AuthorIngebrigtsen", "bro", "Read");
+// addToLibrary("Patrik", "AuthorIngebrigtsen", "bro", "Not read");
+// addToLibrary("Patri6", "AuthorIngebrigtsen", "bro", "Read");
 
 const fileBook = () => {
     if (libOpen == true) {
