@@ -1,69 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="mainButtons">
-        <div class="addNewBook-container">
-            <button class="addNewBook">Add Book to Library</button>
-        </div>
+      <div class="addNewBook-container">
+        <button class="addNewBook">Add Book to Library</button>
+      </div>
 
-        <div class="booksInLibrary-container">
-            <button class="booksInLibrary">View Books in Library</button>
-        </div>
+      <div class="booksInLibrary-container">
+        <button class="booksInLibrary">View Books in Library</button>
+      </div>
     </div>
 
     <div class="modal-bg">
-        <div class="modal">
-            <div class="inputFields">
-                <div class="textInputFields">
-                    <form action="" method="post">
-                        <div class="inputSection">
-                            <label for="titleInput">Title of book</label>
-                            <input type="text" id="titleInput" class="inputBox" minlength="1" maxlength="40">
-                        </div>
-                    </form>
+      <div class="modal">
+        <div class="inputFields">
+          <div class="textInputFields">
+            <form action="" method="post">
+              <div class="inputSection">
+                <label for="titleInput">Title of book</label>
+                <input type="text" id="titleInput" class="inputBox" minlength="3" maxlength="40" />
+              </div>
+            </form>
 
-                    <form action="" method="post">
-                        <div class="inputSection">
-                            <label for="authorInput">Author of book</label>
-                            <input type="text" id="authorInput" class="inputBox" minlength="1" maxlength="40">
-                        </div>
-                    </form>
+            <form action="" method="post">
+              <div class="inputSection">
+                <label for="authorInput">Author of book</label>
+                <input type="text" id="authorInput" class="inputBox" minlength="2" maxlength="40" />
+              </div>
+            </form>
 
-                    <form action="" method="post">
-                        <div class="inputSection">
-                            <label for="pagesInput">Pages in book</label>
-                            <input type="number" id="pagesInput" class="inputBox" min="1" max="5000">
-                        </div>
-                    </form>
-                </div>
+            <form action="" method="post">
+              <div class="inputSection">
+                <label for="pagesInput">Pages in book</label>
+                <input type="number" id="pagesInput" class="inputBox" min="3" max="5000" />
+              </div>
+            </form>
+          </div>
 
-                <form action="" method="post">
-                    <label for="readInput">Have you read the book?</label>
-                    <label for="readInput">Yes</label>
-                    <input type="radio" name="ReadNotRead" id="readInput" class="inputBox">
-                    <label for="notReadInput">No</label>
-                    <input type="radio" name="ReadNotRead" id="notReadInput" class="inputBox">
-                </form>
-            </div>
-            <div class="submitButtons">
-                <button type="submit" id="submitForm">Submit Book</button>
-                <span class="modalClose">X</span>
-                <button class="submitAndClose">Submit & Close</button>
-            </div>
+          <form action="" method="post">
+            <label for="readInput">Have you read the book?</label>
+            <label for="readInput">Yes</label>
+            <input type="radio" name="ReadNotRead" id="readInput" class="inputBox" />
+            <label for="notReadInput">No</label>
+            <input type="radio" name="ReadNotRead" id="notReadInput" class="inputBox" />
+          </form>
         </div>
+        <div class="submitButtons">
+          <button type="submit" id="submitForm">Submit Book</button>
+          <span class="modalClose">X</span>
+          <button class="submitAndClose">Submit & Close</button>
+        </div>
+      </div>
     </div>
-
-
-</body>
-
+  </body>
 </html>

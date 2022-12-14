@@ -1,197 +1,195 @@
 .card-active {
-    visibility: visible;
-    opacity: 1;
-    z-index: 5;
+  visibility: visible;
+  opacity: 1;
+  z-index: 5;
 }
 
 .card-border {
-    border: 3px solid rgb(200, 179, 154);
-    border-radius: 10px;
-    /* height: 150px; */
-    margin: 10px;
-    z-index: 5;
+  border: 3px solid rgb(200, 179, 154);
+  border-radius: 10px;
+  /* height: 150px; */
+  margin: 10px;
+  z-index: 5;
 }
 
 .cardWrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    margin: 35px;
-    z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 35px;
+  z-index: 5;
 }
 
 .bookCard {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 10fr 1fr;
-    grid-auto-flow: column;
-    background-color: rgb(247, 247, 247);
-    height: 150px;
-    align-items: center;
-    grid-template-areas:
-        "a b c k"
-        "a b c d"
-        "a b c d"
-        "a b r r";
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 10fr 1fr;
+  grid-auto-flow: column;
+  background-color: rgb(247, 247, 247);
+  height: 150px;
+  align-items: center;
+  grid-template-areas:
+    "a b c k"
+    "a b c d"
+    "a b c d"
+    "a b r r";
 }
 
 .bookElement {
-    font-family: monospace;
-    font-size: 16px;
-    margin-left: 8px;
-    word-wrap: break-word;
-    overflow: hidden;
+  font-family: monospace;
+  font-size: 16px;
+  margin-left: 8px;
+  word-wrap: break-word;
+  overflow: hidden;
 }
 
 .deleteCard {
-    Width: 25px;
-    height: 25px;
-    position: relative;
-    cursor: pointer;
-    transition: 0.05s;
-    grid-area: k;
-
+  width: 25px;
+  height: 25px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.05s;
+  grid-area: k;
 }
 
 .deleteCard:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .toggleRead {
-    grid-area: r;
-    height: 30px;
-    line-height: 30px;
-    width: 30px;
-    font-size: 15;
-    border-radius: 50%;
-    text-align: center;
-    cursor: pointer;
-    margin: 0px 10px 10px 0px;
-    background-color: transparent;
-    border: 2px solid black;
-    transition: 2s;
+  grid-area: r;
+  height: 30px;
+  line-height: 30px;
+  width: 30px;
+  font-size: 15;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  margin: 0px 10px 10px 0px;
+  background-color: transparent;
+  border: 2px solid black;
+  transition: 2s;
 }
 
-.toggleRead: {
-    transform: scale(1);
+.toggleRead {
+  transform: scale(1);
 }
 
 .not-read-toggle {
-    transform: scale(0.8);
+  transform: scale(0.8);
 }
 
 .read-toggle {
-    transform: scale(1);
+  transform: scale(1);
 }
 
 .read {
-    background-color: rgb(179, 255, 188);
-    transition: 0.5s;
+  background-color: rgb(179, 255, 188);
+  transition: 0.5s;
 }
 
 .not-read {
-    background-color: rgb(255, 200, 200);
-    transition: 0.5s;
+  background-color: rgb(255, 200, 200);
+  transition: 0.5s;
 }
 
 .mainButtons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .addNewBook-container,
 .booksInLibrary-container {
-    margin: 200px 10px 0px 10px;
+  margin: 200px 10px 0px 10px;
 }
 
 .addNewBook,
 .booksInLibrary {
-    border: none;
-    border-radius: 10px;
-    width: 280px;
-    height: 80px;
-    background-color: bisque;
-    transition: 0.1s;
-    font-size: 16px;
-    font-family: monospace;
+  border: none;
+  border-radius: 10px;
+  width: 280px;
+  height: 80px;
+  background-color: bisque;
+  transition: 0.1s;
+  font-size: 16px;
+  font-family: monospace;
 }
 
 .addNewBook:hover,
 .booksInLibrary:hover {
-    background-color: rgb(240, 215, 186);
+  background-color: rgb(240, 215, 186);
 }
 
-
 .booksInLibraryClicked {
-    visibility: hidden;
-    opacity: 0;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .collapseLibraryClicked {
-    visibility: visible;
-    opacity: 1;
+  visibility: visible;
+  opacity: 1;
 }
 
 .modal-bg {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.2s;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s;
 }
 
 .bg-active {
-    visibility: visible;
-    opacity: 1;
-    z-index: 10;
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
 }
 
 .modal {
-    position: relative;
-    font-family: monospace;
-    background-color: white;
-    width: 475px;
-    height: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 100px;
-    border-radius: 10px;
+  position: relative;
+  font-family: monospace;
+  background-color: white;
+  width: 475px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+  border-radius: 10px;
 }
 
 .submitButtons {
-    display: flex;
+  display: flex;
 }
 
 .inputFields {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .inputSection {
-    display: grid;
-    grid-template-columns: 150px 200px;
-    margin-top: 10px;
-    font-size: 14px;
+  display: grid;
+  grid-template-columns: 150px 200px;
+  margin-top: 10px;
+  font-size: 14px;
 }
 
 #readInput,
 #notReadInput {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .modalClose {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-weight: bold;
-    cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: bold;
+  cursor: pointer;
 }
